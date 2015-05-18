@@ -62,7 +62,7 @@
                 <version>1.13</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <pluginClass>org.exoplatform.bch.sonar.plugin.ExoJavaRulesPlugin</pluginClass>
+                    <pluginClass>org.exoplatform.swf.sonar.plugin.ExoJavaRulesPlugin</pluginClass>
                 </configuration>
             </plugin>
 

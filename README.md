@@ -1,8 +1,9 @@
 # exo-sonar-rules
 
 ## Description
-This project is an example for custom Java rules for SonarQube.  
-It checks that the CSRF protection is activated for WebUI listeners associated to PROCESS phase.  
+This project contains examples for custom Java rules for SonarQube.  
+* It checks that the CSRF protection is activated for WebUI listeners associated to PROCESS phase.
+* It checks that there is no invocation of RepositoryService.getDefaultRepository()
 
 ## Packaging
 ```maven

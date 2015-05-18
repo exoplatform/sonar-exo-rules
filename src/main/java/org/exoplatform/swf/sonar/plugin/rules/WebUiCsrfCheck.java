@@ -1,9 +1,8 @@
-package org.exoplatform.bch.sonar.plugin;
+package org.exoplatform.swf.sonar.plugin.rules;
 
 import org.sonar.api.server.rule.RulesDefinition;
 import org.sonar.check.Priority;
 import org.sonar.check.Rule;
-import org.sonar.java.model.expression.LiteralTreeImpl;
 import org.sonar.plugins.java.api.JavaFileScanner;
 import org.sonar.plugins.java.api.JavaFileScannerContext;
 import org.sonar.plugins.java.api.tree.*;
@@ -61,8 +60,8 @@ public class WebUiCsrfCheck extends BaseTreeVisitor implements JavaFileScanner {
 
                         //Check CSRF value is true
                         if (assExpTree.expression().is(Tree.Kind.BOOLEAN_LITERAL)) {
-                            LiteralTreeImpl expression = (LiteralTreeImpl) assExpTree.expression();
-                            if (Boolean.valueOf(expression.getToken().getValue())) {
+                            LiteralTree expression = (LiteralTree) assExpTree.expression();
+                            if (Boolean.valueOf(expression.value())) {
                                 return true;
                             }
                         }

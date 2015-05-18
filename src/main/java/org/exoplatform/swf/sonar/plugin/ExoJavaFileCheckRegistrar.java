@@ -1,5 +1,7 @@
-package org.exoplatform.bch.sonar.plugin;
+package org.exoplatform.swf.sonar.plugin;
 
+import org.exoplatform.swf.sonar.plugin.rules.RepositoryServiceUsageCheck;
+import org.exoplatform.swf.sonar.plugin.rules.WebUiCsrfCheck;
 import org.sonar.plugins.java.api.CheckRegistrar;
 import org.sonar.plugins.java.api.JavaCheck;
 
@@ -24,7 +26,8 @@ public class ExoJavaFileCheckRegistrar implements CheckRegistrar {
      */
     @SuppressWarnings("unchecked")
     public static Class<? extends JavaCheck>[] checkClasses() {
-        return new Class[] {WebUiCsrfCheck.class};
+        return new Class[] {WebUiCsrfCheck.class,
+                            RepositoryServiceUsageCheck.class};
     }
 
 }

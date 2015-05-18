@@ -1,4 +1,4 @@
-package org.exoplatform.bch.sonar.plugin;
+package org.exoplatform.swf.sonar.plugin;
 
 import org.sonar.api.server.rule.RulesDefinition;
 import org.sonar.api.server.rule.RulesDefinitionAnnotationLoader;

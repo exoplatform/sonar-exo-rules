@@ -1,5 +1,6 @@
-package org.exoplatform.bch.sonar.plugin;
+package org.exoplatform.swf.sonar.plugin.rules;
 
+import org.exoplatform.swf.sonar.plugin.rules.WebUiCsrfCheck;
 import org.junit.Rule;
 import org.junit.Test;
 import org.sonar.java.JavaAstScanner;
@@ -23,7 +24,7 @@ public class WebUiCsrfCheckTest {
         WebUiCsrfCheck check = new WebUiCsrfCheck();
         //When
         SourceFile file = JavaAstScanner
-                .scanSingleFile(new File("src/test/resources/UIExperienceSection.java"), new VisitorsBridge(check));
+                .scanSingleFile(new File("src/test/resources/webuicsrfcheck/UIExperienceSection.java"), new VisitorsBridge(check));
 
         //Then
         checkMessagesVerifier.verify(file.getCheckMessages())
@@ -38,7 +39,7 @@ public class WebUiCsrfCheckTest {
         WebUiCsrfCheck check = new WebUiCsrfCheck();
         //When
         SourceFile file = JavaAstScanner
-                .scanSingleFile(new File("src/test/resources/UIBasicInfoSection.java"), new VisitorsBridge(check));
+                .scanSingleFile(new File("src/test/resources/webuicsrfcheck/UIBasicInfoSection.java"), new VisitorsBridge(check));
 
         //Then
         checkMessagesVerifier.verify(file.getCheckMessages()).noMore();
