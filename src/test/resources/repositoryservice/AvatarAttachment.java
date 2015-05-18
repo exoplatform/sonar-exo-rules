@@ -285,7 +285,7 @@ public class AvatarAttachment {
   private Session getSession() throws Exception {
     RepositoryService repoService = (RepositoryService) PortalContainer.getInstance()
                                     .getComponentInstanceOfType(RepositoryService.class);
-    return repoService.getDefaultRepository().getSystemSession(workspace);
+    return repoService.getRepository("myRepo").getSystemSession(workspace);
   }
 
 }

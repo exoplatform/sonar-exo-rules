@@ -28,6 +28,20 @@ public class RepositoryServiceUsageCheckTest {
         //Then
         checkMessagesVerifier.verify(file.getCheckMessages())
                 .next().atLine(276).withMessage("Don't use RepositoryService.getDefaultRepository()")
-                .next().atLine(288).withMessage("Don't use RepositoryService.getDefaultRepository()");
+                .next().atLine(288).withMessage("Don't use RepositoryService.getRepository(name)");
+    }
+
+    @Test
+    public void useOfGetRepositoryByNameDetected() {
+        //Given
+        RepositoryServiceUsageCheck check = new RepositoryServiceUsageCheck();
+        //When
+        SourceFile file = JavaAstScanner
+                .scanSingleFile(new File("src/test/resources/repositoryservice/AvatarAttachment.java"), new VisitorsBridge(check));
+
+        //Then
+        checkMessagesVerifier.verify(file.getCheckMessages())
+                .next().atLine(276).withMessage("Don't use RepositoryService.getDefaultRepository()")
+                .next().atLine(288).withMessage("Don't use RepositoryService.getRepository(name)");
     }
 }
