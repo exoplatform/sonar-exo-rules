@@ -14,4 +14,5 @@ This project contains custom Java rules for eXo SonarQube.
 ```maven
 mvn clean package
 ```
-1. Copy the jar file in the /extensions/plugin folder of your SonarQube installation.
+2. Copy the jar file in the /extensions/plugin folder of your SonarQube installation
+3. Restart SonarQube
