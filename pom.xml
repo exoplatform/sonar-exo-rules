@@ -10,7 +10,11 @@
     <packaging>sonar-plugin</packaging>
 
     <name>eXo Custom Rules</name>
-    <description>eXo custom rules</description>
+    <description>eXo custom rules</description></packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <dependencies>
         <dependency>
