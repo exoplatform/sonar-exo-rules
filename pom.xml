@@ -3,6 +3,12 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>maven-parent-pom</artifactId>
+        <groupId>org.exoplatform</groupId>
+        <version>14</version>
+        <relativePath />
+    </parent>
 
     <groupId>org.exoplatform.swf</groupId>
     <artifactId>sonar-exo-rules</artifactId>
@@ -18,6 +24,7 @@
         <tag>HEAD</tag>
         <url>https://github.com/exoplatform/sonar-exo-rules</url>
     </scm>
+    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -87,34 +94,5 @@
             </plugin>
         </plugins>
     </build>
-    
-    <profiles>
-        <profile>
-            <id>project-repositories</id>
-            <activation>
-                <property>
-                    <name>!skip-project-repositories</name>
-                </property>
-            </activation>
-            <repositories>
-                <repository>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                    <id>repository.exoplatform.org</id>
-                    <url>https://repository.exoplatform.org/public</url>
-                </repository>
-            </repositories>
-            <pluginRepositories>
-                <pluginRepository>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                    <id>repository.exoplatform.org</id>
-                    <url>https://repository.exoplatform.org/public</url>
-                </pluginRepository>
-            </pluginRepositories>
-        </profile>
-    </profiles>
 
 </project>
