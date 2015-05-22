@@ -10,9 +10,6 @@ This project contains custom Java rules for eXo SonarQube.
 * Sonar Java Plugin 3.2 installed
 
 ## Usage
-1. Build a jar file using
-```maven
-mvn clean package
-```
+1. Build a jar file using ``` mvn clean package ```
 2. Copy the jar file in the /extensions/plugin folder of your SonarQube installation
 3. Restart SonarQube
