@@ -6,6 +6,7 @@ import org.sonar.check.Rule;
 import org.sonar.plugins.java.api.JavaFileScanner;
 import org.sonar.plugins.java.api.JavaFileScannerContext;
 import org.sonar.plugins.java.api.tree.*;
+import org.sonar.squidbridge.annotations.ActivatedByDefault;
 import org.sonar.squidbridge.annotations.SqaleConstantRemediation;
 import org.sonar.squidbridge.annotations.SqaleSubCharacteristic;
 
@@ -19,6 +20,7 @@ import org.sonar.squidbridge.annotations.SqaleSubCharacteristic;
         priority = Priority.BLOCKER)
 @SqaleSubCharacteristic(RulesDefinition.SubCharacteristics.SECURITY_FEATURES)
 @SqaleConstantRemediation("10min")
+@ActivatedByDefault
 public class WebUiCsrfCheck extends BaseTreeVisitor implements JavaFileScanner {
     private static final String EVENT_CONFIG    = "EventConfig";
     private static final String ISSUE_MESSAGE   = "WebUI CSRF protection must be activated";

@@ -10,6 +10,8 @@ import org.sonar.plugins.java.api.JavaFileScanner;
 import org.sonar.plugins.java.api.JavaFileScannerContext;
 import org.sonar.plugins.java.api.semantic.Symbol;
 import org.sonar.plugins.java.api.tree.*;
+import org.sonar.squidbridge.annotations.ActivatedByDefault;
+import org.sonar.squidbridge.annotations.SqaleConstantRemediation;
 
 /**
  *
@@ -20,6 +22,8 @@ import org.sonar.plugins.java.api.tree.*;
         tags = {"multi-tenancy"},
         priority = Priority.BLOCKER
 )
+@ActivatedByDefault
+@SqaleConstantRemediation("15min")
 public class RepositoryServiceUsageCheck extends BaseTreeVisitor implements JavaFileScanner {
     private static final String GET_DEFAULT_REPO_METHOD_NAME = "getDefaultRepository";
     private static final String GET_REPO_BY_NAME_METHOD_NAME = "getRepository";
