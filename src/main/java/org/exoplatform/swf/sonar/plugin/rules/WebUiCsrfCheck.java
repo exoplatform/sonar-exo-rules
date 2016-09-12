@@ -19,6 +19,7 @@ package org.exoplatform.swf.sonar.plugin.rules;
 import org.sonar.api.server.rule.RulesDefinition;
 import org.sonar.check.Priority;
 import org.sonar.check.Rule;
+import org.sonar.plugins.java.api.JavaCheck;
 import org.sonar.plugins.java.api.JavaFileScanner;
 import org.sonar.plugins.java.api.JavaFileScannerContext;
 import org.sonar.plugins.java.api.tree.*;
@@ -57,7 +58,7 @@ public class WebUiCsrfCheck extends BaseTreeVisitor implements JavaFileScanner {
     public void visitAnnotation(AnnotationTree annotationTree) {
         if (EVENT_CONFIG.equals(getAnnotationName(annotationTree))) {
             if (isProcessWebUIPhase(annotationTree) && !isCsrfTrue(annotationTree)) {
-                context.addIssue(annotationTree, this, ISSUE_MESSAGE);
+                context.reportIssue(this, annotationTree, ISSUE_MESSAGE);
             }
         }
         super.visitAnnotation(annotationTree);

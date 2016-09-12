@@ -63,9 +63,9 @@ import org.exoplatform.webui.form.validator.UserConfigurableValidator;
                 template =  "war:/groovy/social/webui/profile/UIExperienceSection.gtmpl",
                 events = {
                         @EventConfig(listeners = UIExperienceSection.EditActionListener.class, phase=Phase.DECODE),
-                        @EventConfig(listeners = UIExperienceSection.SaveActionListener.class),
-                        @EventConfig(listeners = UIExperienceSection.AddActionListener.class),
-                        @EventConfig(listeners = UIExperienceSection.RemoveActionListener.class, phase=Phase.PROCESS),
+                        @EventConfig(listeners = UIExperienceSection.SaveActionListener.class),  // Noncompliant {{WebUI CSRF protection must be activated}}
+                        @EventConfig(listeners = UIExperienceSection.AddActionListener.class),   // Noncompliant {{WebUI CSRF protection must be activated}}
+                        @EventConfig(listeners = UIExperienceSection.RemoveActionListener.class, phase=Phase.PROCESS),  // Noncompliant {{WebUI CSRF protection must be activated}}
                         @EventConfig(listeners = UIProfileSection.CancelActionListener.class, phase=Phase.DECODE)
                 }
         ),

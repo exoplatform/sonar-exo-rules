@@ -25,6 +25,8 @@ import org.sonar.plugins.java.api.tree.*;
 import org.sonar.squidbridge.annotations.ActivatedByDefault;
 import org.sonar.squidbridge.annotations.SqaleConstantRemediation;
 
+import java.util.List;
+
 /**
  *
  */
@@ -55,20 +57,21 @@ public class RepositoryServiceUsageCheck extends BaseTreeVisitor implements Java
             MemberSelectExpressionTree mset = (MemberSelectExpressionTree) tree.methodSelect();
             if (mset.expression().is(Tree.Kind.IDENTIFIER)) {
                 Symbol symbol = ((IdentifierTree) mset.expression()).symbol();
-                if ((symbol.declaration()!=null) && symbol.declaration().is(Tree.Kind.VARIABLE)) {
+                if ((symbol.declaration() != null) && symbol.declaration().is(Tree.Kind.VARIABLE)) {
                     VariableTree variable = (VariableTree) symbol.declaration();
                     if (variable.type().is(Tree.Kind.IDENTIFIER)) {
                         String variableClassName = ((IdentifierTree) variable.type()).name();
                         if (GET_DEFAULT_REPO_CLASS_NAME.equals(variableClassName)) {
                             if (GET_DEFAULT_REPO_METHOD_NAME.equals(mset.identifier().name())) {
-                                context.addIssue(tree, this, "Don't use RepositoryService.getDefaultRepository()");
+                                context.reportIssue(this, tree, "Don't use RepositoryService.getDefaultRepository()");
                             } else if (GET_REPO_BY_NAME_METHOD_NAME.equals(mset.identifier().name())) {
-                                context.addIssue(tree, this, "Don't use RepositoryService.getRepository(name)");
+                                context.reportIssue(this, tree, "Don't use RepositoryService.getRepository(name)");
                             }
                         }
                     }
                 }
             }
+
         }
         super.visitMethodInvocation(tree);
     }

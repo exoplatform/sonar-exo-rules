@@ -31,7 +31,7 @@ public class ExoJavaFileCheckRegistrar implements CheckRegistrar {
     @Override
     public void register(CheckRegistrar.RegistrarContext registrarContext) {
         //Call to registerClassesForRepository to associate the classes with the correct repository key
-        registrarContext.registerClassesForRepository(ExoJavaRulesDefinition.REPOSITORY_KEY, Arrays.asList(checkClasses()));
+        registrarContext.registerClassesForRepository(ExoJavaRulesDefinition.REPOSITORY_KEY, Arrays.asList(checkClasses()), Arrays.asList(checkClasses()));
     }
 
     /**

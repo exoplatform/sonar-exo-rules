@@ -16,20 +16,11 @@
  */
 package org.exoplatform.swf.sonar.plugin;
 
-import org.sonar.api.SonarPlugin;
 
-import java.util.Arrays;
-import java.util.List;
-
-public class ExoJavaRulesPlugin extends SonarPlugin {
+public class ExoJavaRulesPlugin implements org.sonar.api.Plugin {
 
     @Override
-    public List getExtensions() {
-        return Arrays.asList(
-                // server extensions -> objects are instantiated during server startup
-                ExoJavaRulesDefinition.class,
-
-                // batch extensions -> objects are instantiated during code analysis
-                ExoJavaFileCheckRegistrar.class);
+    public void define(Context context) {
+      context.addExtensions(ExoJavaFileCheckRegistrar.class, ExoJavaRulesDefinition.class);
     }
 }

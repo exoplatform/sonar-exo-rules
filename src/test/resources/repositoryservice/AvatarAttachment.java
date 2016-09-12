@@ -26,7 +26,7 @@ import javax.jcr.Node;
 import javax.jcr.Session;
 import java.io.InputStream;
 
-/*
+/**
  * This class using for attachment profile of identity or of space, such as
  * image.
  *
@@ -273,7 +273,7 @@ public class AvatarAttachment {
   private Session getSession(PortalContainer portalcontainer) throws Exception {
     RepositoryService repoService = (RepositoryService) portalcontainer
                                     .getComponentInstanceOfType(RepositoryService.class);
-    return repoService.getDefaultRepository().getSystemSession(workspace);
+    return repoService.getDefaultRepository().getSystemSession(workspace);  // Noncompliant {{Don't use RepositoryService.getDefaultRepository()}}
   }
 
   /**
@@ -285,7 +285,7 @@ public class AvatarAttachment {
   private Session getSession() throws Exception {
     RepositoryService repoService = (RepositoryService) PortalContainer.getInstance()
                                     .getComponentInstanceOfType(RepositoryService.class);
-    return repoService.getRepository("myRepo").getSystemSession(workspace);
+    return repoService.getRepository("myRepo").getSystemSession(workspace);  // Noncompliant {{Don't use RepositoryService.getRepository(name)}}
   }
 
 }
