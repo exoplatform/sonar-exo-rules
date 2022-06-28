@@ -34,7 +34,7 @@
   </scm>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <sonar-plugin-api.version>5.6</sonar-plugin-api.version>
+    <sonar-plugin-api.version>7.4</sonar-plugin-api.version>
     <sonar-java-plugin.version>4.2</sonar-java-plugin.version>
     <sslr-testing-harness.version>1.20</sslr-testing-harness.version>
     <junit.version>4.12</junit.version>
